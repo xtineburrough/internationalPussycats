@@ -1,0 +1,211 @@
+html,
+body {
+  margin: *;
+  padding: *;
+  width: 100%;
+  height: 100%;
+}
+@font-face {
+  font-family: dotMatrix;
+  /*src: url(http://missconceptions.net/fonts/dotmatrix.woff2);*/
+  src: url(https://cdn.glitch.global/0a05193e-5450-4c22-b4af-ad0f7a53cd59/dotmatrix.woff2?v=1723643881582);
+}
+body {
+  background: url("https://cdn.glitch.global/0a05193e-5450-4c22-b4af-ad0f7a53cd59/background-animTrans.gif?v=1714337550600");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: rgb(255, 255, 0);
+  margin: 0;
+  /* font used in band members section */
+  font-family: "Archivo Narrow", sans-serif;
+  font-style: normal;
+}
+.wrapper {
+  min-height: 87vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/*** HEADER AND HEADINGS  ***/
+header {
+  background-color: rgb(0, 0, 0, 0.75);
+  color: #ffffff;
+  text-align: center;
+  padding: 4rem;
+  font: 400 36px dotMatrix, sans-serif;
+}
+h1 {
+  rotate: 3deg;
+    color: rgb(141, 67, 218);
+}
+h2 {
+  font-size: 1.5rem;
+  letter-spacing: 0.5rem;
+  rotate: 1.5deg;
+  text-align: center;
+  text-shadow: #000000 2px 0 2rem; /* color, x, y, radius */
+}
+
+h3 {
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 3rem;
+}
+
+/*** LINKS ***/
+a:link,
+a:visited {
+  text-decoration: none;
+  color: #fae73e;
+}
+a:hover,
+a:active {
+  text-decoration: none;
+  color: #cccccc;
+}
+
+/*** FORM ****/
+.signUp {
+  text-align: left;
+  color: rgba(255, 255, 0, 0.8);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  line-height: 2rem;
+}
+.form-wrapper {
+  width: 300px;
+  margin: 0 auto;
+}
+.form-content {
+  padding: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #cccccc;
+  margin-bottom: 15px;
+}
+
+button {
+  /* color: #8d4cd6; purple is also rgb(141, 67, 218) */
+  color: #000000;
+  padding: 2rem;
+  margin: 1rem 0;
+  border: none;
+  border-radius: 1rem;
+  cursor: pointer;
+  line-height: 2rem;
+}
+button,
+input {
+  font-family: inherit;
+  font-size: 100%;
+  background-color: rgb(255, 255, 0, 0.9);
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 0.5rem 1rem;
+  transition: 500ms;
+}
+button:hover {
+  background-color: rgb(141, 67, 218, 0.9);
+  color: #cccccc;
+}
+
+/*** BAND MEMBERS  ***/
+.content-members {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  font-size: 1.5rem;
+  /*background-color: pink; using this to see div boundaries */
+}
+#membersList {
+  width: 408px;
+  height: 100vh; /* this is where we see something interesting */
+  text-align: left;
+  padding: 0 2rem 2rem 2rem;
+  margin: -2rem auto 2rem auto;
+  background: #000000;
+  color: #cccccc;
+  font-size: 1rem;
+}
+.membersFrom {
+  rotate: 0.3deg;
+  color: #bfb6cc;
+  display: block;
+  margin: -1rem 0;
+}
+
+#printMembers {
+   background-color: ##af74ed; /*lighter purple*/
+    background-image: linear-gradient(25deg, #af74ed, #F3F3F4);
+    background-size: 100%;
+    -webkit-background-clip: text;
+    -moz-background-clip: text;
+    -webkit-text-fill-color: transparent; 
+    -moz-text-fill-color: transparent;
+  font-size: 2.5rem;
+}
+/********* stuff i didn't use  ****/
+/*.join {
+  grid-column: 2;
+  padding: 1rem;
+  background-color: rgba(30, 10, 10, 0.75);
+  color: rgba(255, 255, 255, 0.8);
+  rotate: -1.2deg;
+  font-family: "Archivo Narrow", sans-serif;
+  font-style: normal;
+  font-size: 1rem;
+}*/
+/*
+.content-main {
+  display: grid;
+  grid-template-columns: 75% 25%;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  width: 70%;
+  height: 100vh;
+  margin: 0 auto;
+  font-family: "Archivo Narrow", sans-serif;
+  font-style: normal;
+  font-size: 1.5rem;
+}
+/*
+.about {
+  grid-column: 1;
+  padding: 1rem;
+  background-color: rgba(30, 10, 10, 0.75);
+  color: rgba(255, 255, 255, 0.8);
+  rotate: 2.5deg;
+  opacity: 1;
+}
+.about-shadow {
+  background-color: rgb(255, 255, 255, 0.4);
+  background: linear-gradient(#dfd3e3, #4e4a4f);
+  opacity: 0.8;
+  rotate: 1deg;
+  grid-column: 1;
+  filter: blur(0.8px);
+}
+.content-members a {
+  border: 0;
+  text-decoration: none;
+}
+.members {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgb(255, 255, 255, 0.4);
+}
+*/
