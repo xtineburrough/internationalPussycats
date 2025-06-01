@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <!--Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Sixtyfour&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>International Pussycats</title>
+
+    <!-- The website stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- The website JavaScript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body>
+    <div class="wrapper">
+      <header>
+        <h1>International Pussycats is a virtual post-punk band</h1>
+        <!--  <a href="#" tabindex="0" class="join-now">JOIN NOW</a>-->
+        <div class="signUp">
+          <div class="form-wrapper">
+            <!--  <div class="form-content">-->
+            <form id="joinNow" class="form-content" action="#" method="POST">
+              <label for="firstName">First Name:</label>
+              <input type="text" id="firstName" name="firstname" required />
+              <label for="lastName">Last Name:</label>
+              <input type="text" id="lastName" name="lastname" required />
+              <label for="city">Location:</label>
+              <input type="text" id="city" name="city" required />
+              <label for="instrument">Instrument:</label>
+              <input type="text" id="instrument" name="instrument" required />
+              <button type="submit">Join Now Pussycat</button>
+            </form>
+          </div>
+          <!--</div>-->
+        </div>
+        <h2>
+          We redefine punk not as a Do-It-Yourself effort but as a speculation
+          on what happens if you Don’t-Do-It-At-All. Let’s make the world’s
+          largest punk band that never, not even once, performed. Anyone can
+          join. Your mom can join. Your infant can join. You can join if you’re
+          already in a band, if you play an instrument, or if you want to join a
+          band but don’t know how to play. If you want to tell people you’re in
+          a band but don’t want to practice, you can be part of the
+          International Pussycats. If you don’t care about making money, you
+          should definitely join this band.
+        </h2>
+        <h3>
+          International Pussycats was made by xtine burrough, aka Vocal Purr,
+          inspired by burrough and Mundy’s
+          <a href="#">Critical Web Design</a>
+        </h3>
+      </header>
+
+      <div class="content-members" role="main">
+        <a
+          href="index.html"
+          title="you don't have to go home but you can't stay here"
+        >
+          <img
+            src="https://cdn.glitch.global/0a05193e-5450-4c22-b4af-ad0f7a53cd59/internationalPussycats-final.png?v=1714346872059"
+            alt="International Pussycats Tshirt"
+            title="you don't have to go home but you can't stay here"
+          />
+        </a>
+        <div id="membersList">
+          <h2>BAND MEMBERS</h2>
+          <p id="printMembers">t</p>
+          <!--
+          Aimee <span class="nickname">Meow Meow Strings</span> Mann
+          <span class="membersFrom"><br />from Los Angeles on vocals</span>
+          <br />Liz <span class="nickname">Licks Bass</span> Phair
+          <span class="membersFrom"><br />from Chicago on guitar </span>
+          <br />Helene de <span class="nickname">Furry Chords</span> Cixous
+          <span class="membersFrom"
+            ><br />from Paris, France on harmonies
+          </span>
+          <br />Judith <span class="nickname">Claws ThreeChords</span> Butler
+          <span class="membersFrom"
+            ><br />from Berkeley, California on kazoo
+          </span>
+          <br />Exene <span class="nickname">Feline Sticks</span> Cervenka
+          <span class="membersFrom"><br />from Los Angeles on spoons </span>
+          <br />Kathleen <span class="nickname">Loud Tails</span> Hanna
+          <span class="membersFrom"
+            ><br />from Olympia, Washington on theramin
+          </span>
+          <br />Billy <span class="nickname">Angry Whiskers</span> Karren
+          <span class="membersFrom"
+            ><br />from the Pacific Northwest on flute
+          </span>
+          <br />Kathi <span class="nickname">Hissing Vocals</span> Wilcox
+          <span class="membersFrom"
+            ><br />from somewhere out west on trumpet
+          </span>
+          <br />Tobi <span class="nickname">Glass-eyed Strums</span> Vail
+          <span class="membersFrom"><br />from Oregon on clarinet </span>
+          <br />Corinne <span class="nickname">Prrrly Chords</span> Tucker
+          <span class="membersFrom"
+            ><br />from Sleater-Kinney, it's the name of an exit near Olympia,
+            for realz on vocals</span
+          >
+          <br />Carrie <span class="nickname">Heavy Nip</span> Brownstein
+          <span class="membersFrom"><br />from Sleater-Kinney on vocals</span>
+          <br />Janet <span class="nickname">Feet-first Kickpads</span> Weiss
+          <span class="membersFrom"
+            ><br />from the basement on a hill on drums</span
+          >
+-->
+        </div>
+      </div>
+    </div>
+    <script>
+      document
+        .querySelector("form.form-content")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          document.getElementById("printMembers").innerText =
+            document.getElementById("firstName").value +
+            " " +
+            document.getElementById("lastName").value +
+            " from " +
+            document.getElementById("city").value +
+            " on " +
+            document.getElementById("instrument").value;
+        });
+    </script>
+  </body>
+</html>

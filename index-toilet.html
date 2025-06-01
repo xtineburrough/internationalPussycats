@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+    <title>International Pussycats</title>
+
+    <!-- The website stylesheet -->
+    <link rel="stylesheet" href="/style-final.css" />
+
+    <!-- The website JavaScript file -->
+    <script src="/script.js" defer></script>
+
+    <!--Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Narrow:ital,wght@0,400..700;1,400..700&family=Sixtyfour&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="header">
+      <h1>International Pussycats is a virtual post-punk band</h1>
+      <a href="#" tabindex="0" class="join-now">JOIN NOW</a>
+    </header>
+
+    <main class="main">
+      <section class="image-section">
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/258a3e08584734140ab376a173f6a792ea92a7a25a6b77db379d3c1b864aac90?apiKey=ef9d79f910a94f5f9c8081fedb511234&"
+          alt=""
+          class="img-full"
+        />
+        <div class="content">
+          <img
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/e77a71a5a71cb114d26104971e4295b488a5b2252f69645ac4fd1c1ea35e55df?apiKey=ef9d79f910a94f5f9c8081fedb511234&"
+            alt=""
+            class="img-full"
+          />
+          <form>
+            <div class="form-group">
+              <label for="firstName" class="form-label">First Name</label>
+              <input
+                type="text"
+                id="firstName"
+                class="form-input"
+                placeholder="First Name"
+                aria-label="First Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="lastName" class="form-label">Last Name</label>
+              <input
+                type="text"
+                id="lastName"
+                class="form-input"
+                placeholder="Last Name"
+                aria-label="Last Name"
+              />
+            </div>
+            <div class="form-group">
+              <label for="instrument" class="form-label">Instrument</label>
+              <input
+                type="text"
+                id="instrument"
+                class="form-input"
+                placeholder="Instrument"
+                aria-label="Instrument"
+              />
+            </div>
+            <button type="submit" class="join-button">Join Now Pussycat</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <section class="info-section">
+      <div class="info-wrapper">
+        <div class="info-column">
+          <p class="info-text">
+            We redefine punk not as a Do-It-Yourself effort but as a speculation
+            on what happens if you Don’t-Do-It-At-All. Let’s make the world’s
+            largest punk band that never, not even once, performed.
+          </p>
+          <p class="info-text">
+            Anyone can join. Your mom can join. Your infant can join. You can
+            join if you’re already in a band, if you play an instrument, or if
+            you want to join a band but don’t know how to play. If you want to
+            tell people you’re in a band but don’t want to practice, you can be
+            part of the International Pussycats.
+          </p>
+          <p class="info-text">
+            If you don’t care about making money, you should definitely join
+            this band.
+          </p>
+        </div>
+        <div class="info-column-2">
+          <p class="new-members">
+            International Pussycats was made by xtine burrough, aka Vocal Purr,
+            inspired by burrough and Mundy’s
+            <span class="highlight-text">Critical Web Design.</span>
+          </p>
+          <p class="new-members">
+            NEW BAND MEMBERS<br />
+            (pull a few names here)
+          </p>
+          <p class="new-members">
+            Check out this
+            <span class="highlight-text">list of all band members</span>
+          </p>
+        </div>
+      </div>
+    </section>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+  // Get form elements
+  const form = document.querySelector("form");
+  const firstNameInput = document.getElementById("firstName");
+  const lastNameInput = document.getElementById("lastName");
+  const instrumentInput = document.getElementById("instrument");
+
+  // Get the container where new members' info will be displayed
+  const membersContainer = document.querySelector(".info-column-2 .new-members");
+
+  // Add event listener to handle form submission
+  form.addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    // Get input values
+    const firstName = firstNameInput.value.trim();
+    const lastName = lastNameInput.value.trim();
+    const instrument = instrumentInput.value.trim();
+
+    // Make sure all fields have values
+    if (firstName === "" || lastName === "" || instrument === "") {
+      alert("Please fill out all fields.");
+      return;
+    }
+
+    // Create new member information
+    const newMember = document.createElement("p");
+    newMember.textContent = `${firstName} ${lastName} - ${instrument}`;
+
+    // Append the new member to the membersContainer
+    membersContainer.appendChild(newMember);
+
+    // Clear form fields after submission
+    firstNameInput.value = "";
+    lastNameInput.value = "";
+    instrumentInput.value = "";
+  });
+});
+</script>
+  </body>
+</html>
