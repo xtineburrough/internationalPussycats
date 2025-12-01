@@ -134,7 +134,8 @@ img {
   /* background-color: pink; using this to see div boundaries */
 }
 #membersList {
-  width: 408px;
+  /* width: 408px; */
+  width: 100%;
   min-height: 100vh; /* this is where we see something interesting */
   text-align: left;
   padding: 0 2rem 2rem 2rem;
@@ -144,6 +145,7 @@ img {
   background: url("tshirt-bottom.png");
   background-repeat: repeat-y;
   background-origin: content-box, padding-box;
+  background-size: cover;
   color: #cccccc;
   font-size: 1rem;
 }
