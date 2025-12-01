@@ -134,7 +134,7 @@ button:hover {
   text-align: left;
   padding: 0 2rem 2rem 2rem;
   margin: -2rem auto 2rem auto;
-  transform: translateX(4px); /* make list align with tshirt */
+  transform: translateX(6px); /* make list align with tshirt */
   background: #000000;
   color: #cccccc;
   font-size: 1rem;
