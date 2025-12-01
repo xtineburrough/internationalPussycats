@@ -140,8 +140,8 @@ img {
   padding: 0 2rem 2rem 2rem;
   margin: -2rem auto 2rem auto;
   transform: translateX(6px); /* make list align with tshirt */
-  background: #000000;
-  background: url("tshirt-bottom.png") repeat-y center top auto;
+  /*background: #000000; */
+  background: #000 url("tshirt-bottom.png") repeat-y center top auto;
 }
   color: #cccccc;
   font-size: 1rem;
