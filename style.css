@@ -135,7 +135,7 @@ img {
 }
 #membersList {
   width: 408px;
-  height: 100vh; /* this is where we see something interesting */
+  min-height: 100vh; /* this is where we see something interesting */
   text-align: left;
   padding: 0 2rem 2rem 2rem;
   margin: -2rem auto 2rem auto;
