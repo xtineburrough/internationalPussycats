@@ -119,7 +119,12 @@ button:hover {
   background-color: rgb(141, 67, 218, 0.9);
   color: #cccccc;
 }
-
+/*** T-SHIRT ***/
+img {
+  max-width: 100%; /* image scales down but not larger than its original width */
+  height: auto;    /* Maintains aspect ratio when scaling */
+  display: block;  /*removes space below img; helps keep layout intact when scaling */
+}
 /*** BAND MEMBERS  ***/
 .content-members {
   width: 100%;
