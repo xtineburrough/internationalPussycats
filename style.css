@@ -144,8 +144,7 @@ img {
   /*background: #000000; */
   background: url("tshirt-bottom.png");
   background-repeat: repeat-y;
-  background-origin: content-box, padding-box;
-  background-size: cover;
+  background-origin: content-box;
   color: #cccccc;
   font-size: 1rem;
 }
