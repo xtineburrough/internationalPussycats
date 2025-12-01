@@ -131,7 +131,7 @@ img {
   text-align: center;
   margin: 0 auto;
   font-size: 1.5rem;
-  /*background-color: pink; using this to see div boundaries */
+  /* background-color: pink; using this to see div boundaries */
 }
 #membersList {
   width: 408px;
@@ -141,6 +141,8 @@ img {
   margin: -2rem auto 2rem auto;
   transform: translateX(6px); /* make list align with tshirt */
   background: #000000;
+  background: url("tshirt-bottom.png") repeat-y center top auto;
+}
   color: #cccccc;
   font-size: 1rem;
 }
