@@ -134,17 +134,17 @@ img {
   /* background-color: pink; using this to see div boundaries */
 }
 #membersList {
-  /* width: 408px; */
-  width: 100%;
+  width: 408px; 
+  /* width: 100%; */
   min-height: 100vh; /* this is where we see something interesting */
   text-align: left;
   padding: 0 2rem 2rem 2rem;
   margin: -2rem auto 2rem auto;
   transform: translateX(6px); /* make list align with tshirt */
-  /*background: #000000; */
-  background: url("tshirt-bottom.png");
+  background: #000000;
+  /* background: url("tshirt-bottom.png");
   background-repeat: repeat-y;
-  background-origin: content-box;
+  background-origin: content-box; */
   color: #cccccc;
   font-size: 1rem;
 }
@@ -164,8 +164,8 @@ img {
     -webkit-text-fill-color: transparent; 
     -moz-text-fill-color: transparent;
    width: 100%;
-  padding: 0 auto;
-  font-size: 2.67vw;
+   padding: 0 auto;
+  font-size: 2vw; 
 }
 /********* stuff i didn't use  ****/
 /*.join {
