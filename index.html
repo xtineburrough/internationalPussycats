@@ -78,7 +78,6 @@
         </a>
         <div id="membersList">
           <h2>BAND MEMBERS</h2>
-          <p id="printMembers">Your Name Here</p>
           <!--
           Aimee <span class="nickname">Meow Meow Strings</span> Mann
           <span class="membersFrom"><br />from Los Angeles on vocals</span>
@@ -124,19 +123,89 @@
       </div>
     </div>
     <script>
-      document
-        .querySelector("form.form-content")
-        .addEventListener("submit", function (event) {
-          event.preventDefault();
-          document.getElementById("printMembers").innerText =
-            document.getElementById("firstName").value +
-            " " +
-            document.getElementById("lastName").value +
-            " from " +
-            document.getElementById("city").value +
-            " on " +
-            document.getElementById("instrument").value;
-        });
+      // The URL where your backend server is listening
+      const API_URL = "http://localhost:3000/api/members";
+
+      const punkNicknames = ["Furry Chords", "Hissing Feedback", "Claws Out", "Static Fur", "Reverb Meow", "The Scratcher", "Litterbox Lo-Fi",
+       "Fuzz Pedal", "Laser Pointer", "Naptime Shredder", "Hairball Distortion", "Stray Cat", "Nine Lives", "Tuna Can", "Alley Cat", 
+       "No-Wave Whiskers", "Angry Purr", "Feline Treble", "Bass Instinct", "Catnip Overdose", "Whisker Riot", "Dumpster Serenade", 
+       "Snarl Purr", "Back Alley Static", "Scratched Vinyl", "Midnight Hairball", "Rabid Tabby", "Broken Litter Amp", "Feral Feedback", 
+       "Claw Marks Only", "Streetlight Howl", "Neon Alley Paws", "Purrjury", "Spit & Whiskers", "Alley Echo", 
+       "Flea Collar Noise", "Stray Voltage", "Scuffed Paws", "Nine-Volt Cat", "Meowtallica", "Scratch 'n' Sniff","Feedback Loop",
+        "Broken Metronome", "Overdriven Paw", "Mono Mix Menace", "Out-of-Tune Claws", "Buzzing Strings", "Drop-D Paw", "Off-Beat Feline", 
+        "Muted Growl", "Feral Frequencies", "Clip Distortion", "Unplugged Menace", "Low-Gain Gremlin", "Dead String Theory", 
+        "Phase Shift Kitty", "DIY Delay", "Noise Floor Nap", "Tempo Tantrum", "Analog Alleycat", "Rehearsal Avoider", "Tape Hiss", 
+        "No-Wave Nap", "Broken Cassette", "Garage Static", "Unmastered Menace", "Found Sound Feral", "Side-B Only", "Demo Version Cat", 
+        "Unreleased Track", "Post-Practice Purr", "Minimal Effort Max Noise", "Anti-Hook", "Refused Encore", "Field Recording Feline", 
+        "Concept Album Cat"
+];
+function getRandomNickname() {
+    const randomIndex = Math.floor(Math.random() * punkNicknames.length);
+    return punkNicknames[randomIndex];
+  }
+      async function loadMembers() {
+    try {
+      const response = await fetch(API_URL);
+      const members = await response.json();
+      
+      const listContainer = document.getElementById("membersList");
+      // Reset the header content
+      listContainer.innerHTML = '<h2>BAND MEMBERS</h2><p id="printMembers"></p>'; 
+
+      members.forEach(member => {
+        const memberElement = document.createElement("p");
+        
+        // Use the saved nickname, or a fallback if an old member doesn't have one
+        const nickToDisplay = member.nickname || "Mystery Cat";
+
+        // We insert the <span class="nickname"> here to match your styling
+        memberElement.innerHTML = `
+          ${member.firstname} <span class="nickname">"${nickToDisplay}"</span> ${member.lastname}
+          <span class="membersFrom"><br />from ${member.city} on ${member.instrument}</span>
+        `;
+        listContainer.appendChild(memberElement);
+      });
+    } catch (error) {
+      console.error("Error loading members:", error);
+    }
+  }
+      // 2. Function to Handle the Form Submit (Joining the Band)
+      document.querySelector("form.form-content").addEventListener("submit", async function (event) {
+        event.preventDefault(); // Stop the page from refreshing
+      
+        const generatedNick = getRandomNickname();
+
+        // Gather the data from your text boxes
+        const formData = {
+          firstname: document.getElementById("firstName").value,
+          lastname: document.getElementById("lastName").value,
+          city: document.getElementById("city").value,
+          instrument: document.getElementById("instrument").value,
+          nickname: generatedNick 
+        };
+
+        // Send the data to your Node.js Server
+        try {
+          const response = await fetch(API_URL, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(formData)
+          });
+          const result = await response.json();
+
+          if (response.ok) {
+            document.querySelector("form.form-content").reset();
+            loadMembers(); 
+            alert("Welcome to the band!");
+          } else {
+              alert(result.error || "Something went wrong joining the band.");          }
+        } catch (error) {
+          console.error("Error submitting form:", error);
+        }
+      });
+
+      // 3. Load the members as soon as the page opens
+      loadMembers();
     </script>
   </body>
 </html>
