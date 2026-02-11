@@ -11,7 +11,7 @@ body {
   src: url(https://cdn.glitch.global/0a05193e-5450-4c22-b4af-ad0f7a53cd59/dotmatrix.woff2?v=1723643881582);
 }
 body {
-  background: url("https://cdn.glitch.global/0a05193e-5450-4c22-b4af-ad0f7a53cd59/background-animTrans.gif?v=1714337550600");
+  background: url("background-animTrans.gif");
   background-repeat: no-repeat;
   background-size: cover;
   background-color: rgb(255, 255, 0);
