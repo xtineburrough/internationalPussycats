@@ -53,6 +53,7 @@ app.post('/api/members', async (req, res) => {
     await newMember.save();
     res.status(201).json(newMember);
 
+
   } catch (error) {
     res.status(500).json({ error: 'Failed to save member' });
   }
@@ -68,6 +69,8 @@ app.get('/api/members', async (req, res) => {
   }
 });
 
-// Start the server
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
