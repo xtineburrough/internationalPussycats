@@ -2,14 +2,19 @@ require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-const Filter = require('bad-words');
 
 const app = express();
+
+app.use(cors()); // Allows your HTML file to talk to this server
+app.use(express.json()); // Allows server to read JSON data
+
+const Filter = require('bad-words');
+
+
 const filter = new Filter();
 
 // Middleware
-app.use(cors()); // Allows your HTML file to talk to this server
-app.use(express.json()); // Allows server to read JSON data
+
 
 // 1. Connect to MongoDB Atlas
 mongoose.connect(process.env.MONGO_URI)
