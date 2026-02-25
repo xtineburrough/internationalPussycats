@@ -178,7 +178,7 @@ img {
   font-weight: 400;
   font-style: normal;
   color: #af74ed; 
-  font-size: .75rem;
+  font-size: 1rem;
   /*font-style: italic;*/
   padding: 0 0.3rem; /* Adds a little breathing room around the nickname */
 }
