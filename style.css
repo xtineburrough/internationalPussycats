@@ -1,3 +1,4 @@
+/*** 1. GLOBAL STYLES & FONT ***/
 html,
 body {
   margin: 0;
@@ -5,41 +6,59 @@ body {
   width: 100%;
   height: 100%;
 }
+
 @font-face {
   font-family: dotMatrix;
   /*src: url(http://missconceptions.net/fonts/dotmatrix.woff2);*/
   src: url(https://cdn.glitch.global/0a05193e-5450-4c22-b4af-ad0f7a53cd59/dotmatrix.woff2?v=1723643881582);
 }
+
 body {
-  background: url("background-animTrans.gif");
+  background-color: rgb(255, 255, 0);
+  background-image: url("background-animTrans.gif");
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: rgb(255, 255, 0);
+  background-attachment: fixed; /* Keeps background still while content scrolls */
+  
   margin: 0;
-  /* font used in band members section */
   font-family: "Archivo Narrow", sans-serif;
   font-style: normal;
+  overflow-x: hidden; /* Prevents side-scrolling caused by rotated elements */
 }
+
+/*** 2. LAYOUT WRAPPER ***/
 .wrapper {
   min-height: 87vh;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr; 
   gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  background: transparent; 
 }
 
-/*** HEADER AND HEADINGS  ***/
+/* SIDE-BY-SIDE DESKTOP FORMAT */
+@media (min-width: 769px) {
+  .wrapper {
+    grid-template-columns: 1fr 1fr;
+    padding: 2rem;
+    align-items: start; /* Fixes vertical alignment gaps on desktop */
+  }
+}
+
+/*** 3. HEADER AND HEADINGS ***/
 header {
   background-color: rgb(0, 0, 0, 0.75);
   color: #ffffff;
   text-align: center;
-  padding: 4rem;
+  padding: 2rem 1rem;
   font: 400 36px dotMatrix, sans-serif;
+  font-size: clamp(1.5rem, 8vw, 2.5rem);
 }
+
 h1 {
   rotate: 3deg;
-    color: rgb(141, 67, 218);
+  color: rgb(141, 67, 218);
 }
+
 h2 {
   font-size: 1.5rem;
   letter-spacing: 0.5rem;
@@ -49,24 +68,24 @@ h2 {
 }
 
 h3 {
-  font-size: 2.5rem;
+  font-size: clamp(1.2rem, 5vw, 2.5rem);
   text-align: center;
   line-height: 3rem;
 }
 
-/*** LINKS ***/
+/*** 4. LINKS & FORM ***/
 a:link,
 a:visited {
   text-decoration: none;
   color: #fae73e;
 }
+
 a:hover,
 a:active {
   text-decoration: none;
   color: #cccccc;
 }
 
-/*** FORM ****/
 .signUp {
   text-align: left;
   color: rgba(255, 255, 0, 0.8);
@@ -74,10 +93,13 @@ a:active {
   text-transform: uppercase;
   line-height: 2rem;
 }
+
 .form-wrapper {
-  width: 300px;
+  width: 100%;
+  max-width: 300px;
   margin: 0 auto;
 }
+
 .form-content {
   padding: 10px;
 }
@@ -95,7 +117,6 @@ input[type="text"] {
 }
 
 button {
-  /* color: #8d4cd6; purple is also rgb(141, 67, 218) */
   color: #000000;
   padding: 2rem;
   margin: 1rem 0;
@@ -104,6 +125,7 @@ button {
   cursor: pointer;
   line-height: 2rem;
 }
+
 button,
 input {
   font-family: inherit;
@@ -115,44 +137,57 @@ input {
   padding: 0.5rem 1rem;
   transition: 500ms;
 }
+
 button:hover {
   background-color: rgb(141, 67, 218, 0.9);
   color: #cccccc;
 }
-/*** T-SHIRT ***/
-img {
-  max-width: 100%; /* image scales down but not larger than its original width */
-  height: auto;    /* Maintains aspect ratio when scaling */
-  display: block;  /*removes space below img; helps keep layout intact when scaling */
-}
-/*** BAND MEMBERS  ***/
+
 .content-members {
   width: 100%;
   max-width: 620px;
   text-align: center;
   margin: 0 auto;
   position: relative;
-  
   font-size: 1.5rem;
-  /* background-color: pink; using this to see div boundaries */
+  
+  display: grid;
+  grid-template-areas: 
+    "shirt"
+    "list";
+  align-items: end; /* Desktop fix: aligns shirt to the bottom area of its row */
 }
-#membersList {
-  width: 100%;
-  box-sizing: border-box; 
-  width: fit-content;
+
+.content-members a {
+  grid-area: shirt;
+  z-index: 10;
+  position: relative;
+  display: block;
+  border: 0;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
   margin: 0 auto;
-  /* width: 100%; */
-  min-height: 100vh; /* this is where we see something interesting */
+}
+
+#membersList {
+  grid-area: list;
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 100vh;
   text-align: left;
-  padding: 0 2rem 2rem 2rem;
-  margin-top: -2rem;
+  padding: 4rem 2rem 2rem 2rem; /* Added top padding for the shirt overlap */
+  margin-top: -4.05rem; 
   background: #000000;
-  /* background: url("tshirt-bottom.png");
-  background-repeat: repeat-y;
-  background-origin: content-box; */
   color: #cccccc;
   font-size: 1rem;
+  z-index: 1;
 }
+
 .membersFrom {
   rotate: 0.3deg;
   color: #bfb6cc;
@@ -161,75 +196,67 @@ img {
 }
 
 #printMembers {
-   background-color: #af74ed; /*lighter purple*/
-    background-image: linear-gradient(25deg, #af74ed, #F3F3F4);
-    background-size: 100%;
-    -webkit-background-clip: text;
-    -moz-background-clip: text;
-    -webkit-text-fill-color: transparent; 
-    -moz-text-fill-color: transparent;
-   width: 100%;
-   padding: 0 auto;
-  font-size: 2vw; 
+  background-color: #af74ed;
+  background-image: linear-gradient(25deg, #af74ed, #F3F3F4);
+  background-size: 100%;
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+  -moz-text-fill-color: transparent;
+  width: 100%;
+  padding: 0 auto;
+  font-size: 4vw;
 }
+
 .nickname {
-  font-family: 'Sixtyfour', cursive; /* Matches the font linked in your head */
-  color: #af74ed; 
+  font-family: 'Sixtyfour', cursive;
+  color: #af74ed;
   font-size: .75rem;
   font-style: italic;
-  padding: 0 0.3rem; /* Adds a little breathing room around the nickname */
+  padding: 0 0.3rem;
 }
-/********* stuff i didn't use  ****/
-/*.join {
-  grid-column: 2;
-  padding: 1rem;
-  background-color: rgba(30, 10, 10, 0.75);
-  color: rgba(255, 255, 255, 0.8);
-  rotate: -1.2deg;
-  font-family: "Archivo Narrow", sans-serif;
-  font-style: normal;
-  font-size: 1rem;
-}*/
-/*
-.content-main {
-  display: grid;
-  grid-template-columns: 75% 25%;
-  gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  width: 70%;
-  height: 100vh;
-  margin: 0 auto;
-  font-family: "Archivo Narrow", sans-serif;
-  font-style: normal;
-  font-size: 1.5rem;
+
+@media (max-width: 768px) {
+  header {
+    padding: 2rem 1rem;
+    rotate: 0deg;
+  }
+
+  h1, h2 {
+    rotate: 0deg;
+  }
+
+  h1 { font-size: 1.8rem; }
+  h2 { font-size: 1.1rem; letter-spacing: 0.2rem; }
+  h3 { font-size: 1.4rem; line-height: 1.8rem; }
+
+  .wrapper {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .form-wrapper {
+    width: 90%;
+  }
+
+  #membersList {
+    padding: 3rem 1rem 1rem 1rem;
+    width: 100%;
+    margin-top: -3rem;
+  }
+
+  .nickname {
+    font-size: 0.65rem;
+    display: inline-block;
+  }
+
+  #printMembers {
+    font-size: 6vw; /* Readability fix for mobile */
+  }
 }
-/*
-.about {
-  grid-column: 1;
-  padding: 1rem;
-  background-color: rgba(30, 10, 10, 0.75);
-  color: rgba(255, 255, 255, 0.8);
-  rotate: 2.5deg;
-  opacity: 1;
+
+@media (max-width: 600px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
 }
-.about-shadow {
-  background-color: rgb(255, 255, 255, 0.4);
-  background: linear-gradient(#dfd3e3, #4e4a4f);
-  opacity: 0.8;
-  rotate: 1deg;
-  grid-column: 1;
-  filter: blur(0.8px);
-}
-.content-members a {
-  border: 0;
-  text-decoration: none;
-}
-.members {
-  display: grid;
-  grid-template-columns: 100%;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  width: 100%;
-  margin: 0 auto;
-  background-color: rgb(255, 255, 255, 0.4);
-}
-*/
