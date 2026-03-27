@@ -39,8 +39,8 @@ body {
 @media (min-width: 769px) {
   .wrapper {
     grid-template-columns: 1fr 1fr;
-    padding: 2rem;
-    align-items: start; /* Fixes vertical alignment gaps on desktop */
+    padding: 0;
+    align-items: start; 
   }
 }
 
@@ -155,7 +155,7 @@ button:hover {
   grid-template-areas: 
     "shirt"
     "list";
-  align-items: end; /* Desktop fix: aligns shirt to the bottom area of its row */
+  align-items: end; 
 }
 
 .content-members a {
@@ -180,12 +180,13 @@ img {
   box-sizing: border-box;
   min-height: 100vh;
   text-align: left;
-  padding: 4rem 2rem 2rem 2rem; /* Added top padding for the shirt overlap */
+  padding: 4rem 2rem 2rem 2rem; 
   margin-top: -4.05rem; 
   background: #000000;
   color: #cccccc;
   font-size: 1rem;
-  z-index: 1;
+  z-index: 1; 
+
 }
 
 .membersFrom {
@@ -194,8 +195,20 @@ img {
   display: block;
   margin: -1rem 0;
 }
+header {
+  margin: 0; 
+  width: 100%; 
+}
+
+h1 {
+  margin: 0; 
+  rotate: 3deg;
+  color: rgb(141, 67, 218);
+}
 
 #printMembers {
+  column-count: 1; 
+  column-gap: 2rem;
   background-color: #af74ed;
   background-image: linear-gradient(25deg, #af74ed, #F3F3F4);
   background-size: 100%;
@@ -205,8 +218,13 @@ img {
   -moz-text-fill-color: transparent;
   width: 100%;
   padding: 0 auto;
-  font-size: 4vw;
+  font-size: clamp(1.2rem, 2vw, 2.5rem);
+  line-height: 1.4;
+
+  
 }
+
+
 
 .nickname {
   font-family: 'Sixtyfour', cursive; /* Matches the font linked in your head */
@@ -254,12 +272,19 @@ img {
   }
 
   #printMembers {
-    font-size: 6vw; /* Readability fix for mobile */
+    font-size: 6vw; 
   }
 }
 
 @media (max-width: 600px) {
   .wrapper {
     grid-template-columns: 1fr;
+  }
+
+}
+
+  @media (max-width: 1024px) {
+  #printMembers {
+    column-count: 2; /* Fill the black box width by splitting the list */
   }
 }
